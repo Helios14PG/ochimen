@@ -115,16 +115,18 @@
 
             // 指定された人数分だけ表示
             for (let i = 0; i < numberOfMembers; i++) {
-                const member = shuffledMembers[i];
+                setTimeout(() => {
+                    const member = shuffledMembers[i];
 
-                const memberDiv = document.createElement('div');
-                memberDiv.className = 'member';
-                memberDiv.innerHTML = `
-                    <p class="name">名前: ${member.name}</p>
-                    <p class="grade">学年: ${member.grade}</p>
-                    <p class="stageName">高座名: ${member.stageName}</p>
-                `;
-                membersContainer.appendChild(memberDiv);
+                    const memberDiv = document.createElement('div');
+                    memberDiv.className = 'member';
+                    memberDiv.innerHTML = `
+                        <p class="name">名前: ${member.name}</p>
+                        <p class="grade">学年: ${member.grade}</p>
+                        <p class="stageName">高座名: ${member.stageName}</p>
+                    `;
+                    membersContainer.appendChild(memberDiv);
+                }, 1000 * (i + 1)); // 1秒間隔で表示
             }
         }
     </script>
