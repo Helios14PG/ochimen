@@ -91,7 +91,7 @@
             {name: 'ねお', grade: '2年', stageName: '聖護院梨々印'},
             {name: 'かおる', grade: '3年', stageName: '柱香薫'},
             {name: 'きたろう', grade: '3年', stageName: '釈尊亭喜汰郎'},
-            {name: 'さすけけけけけ', grade: '3年', stageName: '聖護院四角形'},
+            {name: 'さすけ', grade: '3年', stageName: '聖護院四角形'},
             {name: 'ふせき', grade: '3年', stageName: '成田屋布石'},
             {name: 'べーこん', grade: '3年', stageName: '柱辺ぇ今'},
             {name: 'いちばち', grade: '3年', stageName: '成田屋零百'},
@@ -121,9 +121,9 @@
                     const memberDiv = document.createElement('div');
                     memberDiv.className = 'member';
                     memberDiv.innerHTML = `
-                        <p class="name">名前: ${member.name}</p>
-                        <p class="grade">学年: ${member.grade}</p>
-                        <p class="stageName">高座名: ${member.stageName}</p>
+                        <p class="name">${member.name}</p>
+                        <p class="grade">${member.grade}</p>
+                        <p class="stageName">${member.stageName}</p>
                     `;
                     membersContainer.appendChild(memberDiv);
                 }, 1000 * (i + 1)); // 1秒間隔で表示
