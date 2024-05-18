@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ランダム落研部員出力システム</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        header {
+            background-color: #f0e68c;
+            color: black;
+            padding: 1em 0;
+        }
+        main {
+            padding: 2em;
+        }
+        button {
+            padding: 0.5em 1em;
+            font-size: 1em;
+        }
+        .member {
+            border: 1px solid #ddd;
+            padding: 1em;
+            margin: 1em auto;
+            width: 80%;
+            max-width: 300px;
+            background-color: white;
+        }
+        .member:nth-child(1) {
+            background-color: #87cefa;
+        }
+        .member:nth-child(2) {
+            background-color: #ffb6c1;
+        }
+        .member:nth-child(3) {
+            background-color: #98fb98;
+        }
+        .member:nth-child(4) {
+            background-color: #fffacd;
+        }
+        .member:nth-child(5) {
+            background-color: #ffa07a;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ランダム落研部員出力システム</h1>
+    </header>
+    <main>
+        <label for="number-of-members">出力人数: </label>
+        <select id="number-of-members">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+        <button onclick="fetchMembers()">出力</button>
+        <div id="members-container"></div>
+    </main>
+    <script>
+        const members = [
+            {name: 'にっこも', grade: '2年', stageName: '成田屋解散'},
+            {name: 'みなみみこと', grade: '2年', stageName: '柱未々'},
+            {name: 'おむれっと', grade: '2年', stageName: '聖護院おむれっと'},
+            {name: 'のがみ', grade: '2年', stageName: '成田屋親不知'},
+            {name: 'よじげん', grade: '2年', stageName: '釈尊亭四次元'},
+            {name: 'ぽよい', grade: '2年', stageName: '聖護院ぽ宵。'},
+            {name: 'にこびー', grade: '2年', stageName: '柱^_^b'},
+            {name: 'はんそろ', grade: '2年', stageName: '柱飯独'},
+            {name: 'ちゃしばき', grade: '2年', stageName: '釈尊亭茶しばき'},
+            {name: 'ねお', grade: '2年', stageName: '聖護院梨々印'},
+            {name: 'かおる', grade: '3年', stageName: '柱香薫'},
+            {name: 'きたろう', grade: '3年', stageName: '釈尊亭喜汰郎'},
+            {name: 'さすけ', grade: '3年', stageName: '聖護院四角形'},
+            {name: 'ふせき', grade: '3年', stageName: '成田屋布石'},
+            {name: 'べーこん', grade: '3年', stageName: '柱辺ぇ今'},
+            {name: 'いちばち', grade: '3年', stageName: '成田屋零百'},
+            {name: 'すいくん', grade: '3年', stageName: '柱水君'},
+            {name: 'にわまひろ', grade: '3年', stageName: '聖護院坂菜'},
+            {name: 'せきもと', grade: '4年', stageName: '釈尊亭梅くらげ'},
+            {name: 'あぽろ', grade: '4年', stageName: '柱アポロ'},
+            {name: 'とりかわ', grade: '4年', stageName: '聖護院とり皮'},
+            {name: 'おまがり', grade: '4年', stageName: '聖護院論波'},
+            {name: 'しゃるとる', grade: '4年', stageName: '釈尊亭鮫Leとる'},
+            {name: 'かるて', grade: '4年', stageName: '成田屋かるて'}
+        ];
+
+        function fetchMembers() {
+            const numberOfMembers = document.getElementById('number-of-members').value;
+            const membersContainer = document.getElementById('members-container');
+            membersContainer.innerHTML = ''; // 以前の出力をクリア
+
+            // ランダムに選択された部員情報を表示
+            for (let i = 0; i < numberOfMembers; i++) {
+                const randomIndex = Math.floor(Math.random() * members.length);
+                const member = members[randomIndex];
+
+                const memberDiv = document.createElement('div');
+                memberDiv.className = 'member';
+                memberDiv.innerHTML = `
+                    <p>名前: ${member.name}</p>
+                    <p>学年: ${member.grade}</p>
+                    <p>高座名: ${member.stageName}</p>
+                `;
+                membersContainer.appendChild(memberDiv);
+            }
+        }
+    </script>
+</body>
+</html>
